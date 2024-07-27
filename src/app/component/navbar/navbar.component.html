@@ -1,0 +1,7 @@
+<mat-toolbar class="app-header {{mode1}}">
+    <span>Trello App</span>
+    <div class=" d-flex gap-4">
+        <button (click)="switchLanguage()" style="border-radius:20px; border:1px solid #6c6c67;padding:0px 15px" class=" {{back}}"><i>{{lang}}</i></button>
+        <button (click)="changeMode()" style="border-radius:50%; border:1px solid #6c6c67;width: 40px; height: 40px;" class=" {{back}}"> <i class="pi {{mode}}"></i></button>
+    </div>
+</mat-toolbar>

@@ -1,0 +1,28 @@
+/* You can add global styles to this file, and also import other style files */
+
+@import "primeicons/primeicons.css";
+@import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
+// html,
+// body {
+//     height: 100%;
+// }
+// body {
+//     margin: 0;
+//     font-family: Roboto, "Helvetica Neue", sans-serif;
+// }
+* {
+    margin: 0px;
+    padding: 0px;
+    scroll-behavior: smooth;
+    text-transform: capitalize;
+    box-sizing: border-box;
+    box-sizing: content-box;
+    list-style: none;
+    text-decoration: none;
+}
+
+body,
+html {
+    max-width: 100%;
+    overflow-x: hidden;
+}

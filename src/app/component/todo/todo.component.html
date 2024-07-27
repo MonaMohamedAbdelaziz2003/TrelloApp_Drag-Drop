@@ -1,0 +1,75 @@
+<div class="container-fluid {{mode}}">
+
+    <!-- <div class="container ">
+        <div class="col-md-12" style="margin-top: 16px;"> -->
+    <div class="cdkDropList">
+
+        <div class="example-contianer ">
+            <h2 class="head-title ">{{"Tasks"|translate}}</h2>
+            <div cdkDropList #doneList1="cdkDropList" data-list-name="trello " [cdkDropListData]="tasks " [cdkDropListConnectedTo]="[doneList2,doneList3] " class="example-list {{examplelist}} " (cdkDropListDropped)="drop($event, 'tasks') ">
+                @for (item of tasks; track $index) {
+                <div class="example-box " cdkDrag>
+                    <p>{{item.title}}</p>
+                    <div class="box ">
+                        <button mat-icon-button (click)="deletetskt(item.id, 'trello') "><mat-icon>delete</mat-icon></button>
+                        <button mat-icon-button (click)="onEditeTask(item,$index) "><mat-icon style="color: #6c6c67;" >edit</mat-icon></button>
+                    </div>
+                </div>
+                }
+            </div>
+        </div>
+
+        <div class="example-contianer ">
+            <h2 class="head-title ">{{"Inprogress"|translate}}</h2>
+
+            <div cdkDropList #doneList2="cdkDropList" data-list-name="inprogress " [cdkDropListData]="improgress " [cdkDropListConnectedTo]="[doneList3,doneList1] " class="example-list {{examplelist}} " (cdkDropListDropped)="drop($event,
+            'improgress') ">
+                @for (item of improgress; track $index) {
+                <div class="example-box" cdkDrag>
+                    <p>{{item.title}}</p>
+                    <div class="box ">
+                        <button mat-icon-button color="worn " (click)="deletetskt(item.id, 'inprogress') "><mat-icon>delete</mat-icon></button>
+                    </div>
+                </div>
+                }
+            </div>
+        </div>
+
+        <div class="example-contianer ">
+            <h2 class="head-title ">{{"Done"|translate}}</h2>
+            <div cdkDropList #doneList3="cdkDropList" data-list-name="done " [cdkDropListData]="done " [cdkDropListConnectedTo]="[doneList1,doneList3] " class="example-list {{examplelist}} " (cdkDropListDropped)="drop($event, 'done') ">
+                @for (item of done; track $index) {
+                <div class="example-box " cdkDrag>
+                    <p>{{item.title}}</p>
+                    <div class="box ">
+                        <button mat-icon-button color="worn " (click)="deletetskt(item.id, 'done') "><mat-icon>delete</mat-icon></button>
+                        <button mat-icon-button color="accent "><mat-icon style="-webkit-text-fill-color: green; ">check article</mat-icon></button>
+                    </div>
+                </div>
+                }
+            </div>
+        </div>
+
+    </div>
+
+
+    <div>
+        <div class="d-flex align-items-center justify-content-around p-3 divv">
+            <div>
+                <form [formGroup]="todoform">
+                    <input placeholder=" {{'Your Task'|translate}} " formControlName="item" class="inp {{mode}}">
+                </form>
+            </div>
+
+            <div class="but">
+                @if(!isenable){
+                <button (click)="addtask() " class="{{mode}}" [disabled]="todoform.invalid">
+                      <li class="material-symbols-outlined ">
+                      add_circle</li></button> } @if(isenable){
+                <button (click)="updatetask() " class="{{mode}}" [disabled]="todoform.invalid">
+                      <li class="material-symbols-outlined ">playlist_add_check</li></button> }
+            </div>
+        </div>
+    </div>
+
+</div>
